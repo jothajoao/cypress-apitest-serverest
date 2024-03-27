@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-03-25T22:23:42.141Z",
+    "end": "2024-03-25T22:23:44.147Z",
+    "duration": 2006,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "120857f7-489d-410c-b0b8-bad4a574fa2b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Cadastro\\POST_Cadastro_usuarios.cy.js",
+      "file": "cypress\\e2e\\Cadastro\\POST_Cadastro_usuarios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+          "title": "Cadatro do usuario",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cadastro realizado com sucesso",
+              "fullTitle": "Cadatro do usuario Cadastro realizado com sucesso",
+              "timedOut": null,
+              "duration": 261,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": nomeAleatorio,\n    \"email\": emailAleatorio,\n    \"password\": Cypress.env('password'),\n    \"administrador\": adminAleatorio,\n    \"password\": Cypress.env('password') // Usando o mesmo password\n  }\n}).then(response => {\n  expect(response.status).to.eq(201); // Verifica se a resposta tem status 200\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n  expect(response.body._id).to.exist;\n});",
+              "err": {},
+              "uuid": "71a4906b-d5d3-4ca0-a488-f6888b56ca3c",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastrando um nome em branco",
+              "fullTitle": "Cadatro do usuario Cadastrando um nome em branco",
+              "timedOut": null,
+              "duration": 206,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": \"\",\n    \"email\": emailAleatorio,\n    \"password\": Cypress.env('password'),\n    \"administrador\": adminAleatorio\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400); // Verifica se a resposta tem status 400\n  expect(response.body.nome).to.equal(\"nome não pode ficar em branco\");\n  expect(response.body._id).to.not.exist;\n});",
+              "err": {},
+              "uuid": "923802e3-8abc-495d-86dd-54a7798762dd",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastrando um email em branco",
+              "fullTitle": "Cadatro do usuario Cadastrando um email em branco",
+              "timedOut": null,
+              "duration": 202,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": nomeAleatorio,\n    \"email\": \"\",\n    \"password\": Cypress.env('password'),\n    \"administrador\": adminAleatorio\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400); // Verifica se a resposta tem status 400\n  expect(response.body.email).to.equal(\"email não pode ficar em branco\");\n  expect(response.body._id).to.not.exist;\n});",
+              "err": {},
+              "uuid": "9ac88f27-860e-4360-af63-23663c5bbae5",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cadastrando uma senha em branco",
+              "fullTitle": "Cadatro do usuario cadastrando uma senha em branco",
+              "timedOut": null,
+              "duration": 202,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": nomeAleatorio,\n    \"email\": emailAleatorio,\n    \"password\": \"\",\n    \"administrador\": adminAleatorio\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400); // Verifica se a resposta tem status 400\n  expect(response.body.password).to.equal(\"password não pode ficar em branco\");\n  expect(response.body._id).to.not.exist;\n});",
+              "err": {},
+              "uuid": "9554f765-509f-4b61-bbef-2bb600e5c16a",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastrando um administrador em branco",
+              "fullTitle": "Cadatro do usuario Cadastrando um administrador em branco",
+              "timedOut": null,
+              "duration": 194,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": nomeAleatorio,\n    \"email\": emailAleatorio,\n    \"password\": Cypress.env('password'),\n    \"administrador\": \"\"\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400); // Verifica se a resposta tem status 400\n  expect(response.body.administrador).to.equal(\"administrador deve ser 'true' ou 'false'\");\n  expect(response.body._id).to.not.exist;\n});",
+              "err": {},
+              "uuid": "475b14b1-c6ec-4cab-b6ee-e0be3c967fb5",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastrando um email incorreto",
+              "fullTitle": "Cadatro do usuario Cadastrando um email incorreto",
+              "timedOut": null,
+              "duration": 201,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: \"POST\",\n  url: \"/usuarios\",\n  body: {\n    \"nome\": nomeAleatorio,\n    \"email\": '@teste.com',\n    \"password\": Cypress.env('password'),\n    \"administrador\": adminAleatorio\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(400); // Verifica se a resposta tem status 400\n  expect(response.body.email).to.equal(\"email deve ser um email válido\");\n  expect(response.body._id).to.not.exist;\n});",
+              "err": {},
+              "uuid": "b0c339d9-64fb-407c-9878-4bd6e45e7e75",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastrar usuário existente",
+              "fullTitle": "Cadatro do usuario Cadastrar usuário existente",
+              "timedOut": null,
+              "duration": 518,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.api({\n  method: 'POST',\n  url: '/usuarios',\n  body: {\n    \"nome\": \"Benicio Teste\",\n    \"email\": Cypress.env('emailInvalido'),\n    \"password\": Cypress.env('password'),\n    \"administrador\": \"true\"\n  },\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.equal(400);\n  expect(response.body.message).to.equal(\"Este email já está sendo usado\");\n});",
+              "err": {
+                "message": "AssertionError: expected 201 to equal 400",
+                "estack": "AssertionError: expected 201 to equal 400\n    at Context.eval (webpack://cypress-apirest/./cypress/e2e/Cadastro/POST_Cadastro_usuarios.cy.js:138:35)",
+                "diff": "- 201\n+ 400\n"
+              },
+              "uuid": "d41b857e-07c7-4359-b8c6-db4b46614f32",
+              "parentUUID": "0e28cbf2-43df-4c6f-8eec-cedd673aab7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "71a4906b-d5d3-4ca0-a488-f6888b56ca3c",
+            "923802e3-8abc-495d-86dd-54a7798762dd",
+            "9ac88f27-860e-4360-af63-23663c5bbae5",
+            "9554f765-509f-4b61-bbef-2bb600e5c16a",
+            "475b14b1-c6ec-4cab-b6ee-e0be3c967fb5",
+            "b0c339d9-64fb-407c-9878-4bd6e45e7e75"
+          ],
+          "failures": [
+            "d41b857e-07c7-4359-b8c6-db4b46614f32"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1784,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
